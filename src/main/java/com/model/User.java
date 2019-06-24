@@ -1,4 +1,4 @@
-package main;
+package com.model;
 
 /**
  * Created by Mikolaj on 26.02.2017.

@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Main site</title>
 </head>
+<style type="text/css">
+    .container {
+        width: 300px;
+        clear: both;
+        margin: auto;
+    }
+    .container input {
+        width: 100%;
+        clear: both;
+        align: center;
+        margin: auto;
+    }
+
+</style>
 <body>
 <div>
     <p><h1  align="center">Welcome in Deans Office System</h1></p>
+</div>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<div/>
+<div class="container">
+<form th:action="@{/login}" method="post">
+    <label> <p align="center"> User Name : <input type="text" name="username"/> </p></label>
+    <label> <p align="center"> Password: <input type="password" name="password"/> </p></label>
+    <input type="submit" value="Sign In"/>
+</form>
+</div>
+<div class="container">
+    <form action="/">
+        <input type="submit" value="Register a new user" />
+    </form>
 </div>
 </body>
 </html>
